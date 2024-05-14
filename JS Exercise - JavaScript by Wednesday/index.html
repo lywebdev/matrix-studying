@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercises</title>
+
+    <style>
+        .btn {
+            padding: 5px 10px;
+            display: inline-flex;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn.btn--green {
+            background: green;
+            color: white;
+        }
+
+        .btn.btn--black {
+            background: white;
+            color: black;
+        }
+
+        .todos {
+            outline: 1px solid black;
+            width: 7000px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+
+        .todo {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        #login-form {
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #login-form .input,
+        #login-form .input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+
+        #login-form button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="like-btn" class="btn btn--green">Like</div>
+
+    <form action="">
+        <label for="todo-title">
+            todo title:
+            <input type="text" id="todo-title" name="todo-title">
+        </label>
+        <label for="todo-text">
+            todo text:
+            <input type="text" id="todo-text" name="todo-text">
+        </label>
+
+        <button id="add-in-todo">Add in todo</button>
+    </form>
+
+    <ul id="todos">
+        <li class="todo">
+            <div class="todo__title">Todo 1</div>
+            <div class="todo__text">Test todo</div>
+        </li>
+    </ul>
+
+
+    <img id="target-img" src="https://w.forfun.com/fetch/8f/8f58560f9196ceafdef9787eccd6dab9.jpeg" alt="" style="height: 200px; object-fit: cover;">
+    <hr>
+    <button id="change-target-img">change img</button>
+
+    <div id="login-form">
+        <h2>Auth form</h2>
+        <form id="form">
+            <label for="username">
+                <input class="input" type="text" id="username" placeholder="username">
+            </label>
+            <label for="password">
+                <input class="input" type="password" id="password" placeholder="password">
+            </label>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+        <div id="message"></div>
+    </div>
+
+<script>
+// 1. Variables and Conditionals
+    // 1. Create a variable to store your age. Write a conditional statement to check if you are old enough to vote (age >= 18), and log a message accordingly.
+    let age = 20;
+    console.log(age > 20 ? 'You can vote' : 'You can\'t vote');
+
+    // 2. Write a program that prompts the user for their name. If the name is "John," log "Hello, John!" to the console; otherwise, log "You are not John."
+    let userName = prompt('Enter your name, please');
+    console.log(userName === 'John' ? 'Hello, John!' : 'You are not John.');
+// 2. Functions
+    // 1. Write a function that takes two numbers as parameters and returns their sum. Call the function with different numbers to test it.
+    let sumNumbers = (num1, num2) => num1 + num2;
+    console.log(sumNumbers(5, -20));
+
+    // 2. Create a function that accepts a string as a parameter and returns the string reversed. For example, "hello" should become "olleh."
+        // For example, "hello" should become "olleh." - in first string we can see 'hello' - 5 symbols, in the reverse line we can see 'olleh.' - 6 symbols
+    let reverseString = inputString => inputString.split().reverse().join('');
+    console.log(reverseString('hello'));
+
+// 3. Arrays and Loops
+    // 1. Create an array of your favorite fruits. Use a `for` loop to log each fruit to the console.
+    let favouriteFruits = ['Apple', 'Orange', 'Abricot', 'Peach', 'Cherry', 'Banana', 'Strawberry', 'Raspberry'];
+    for (let i = 0; i < favouriteFruits.length; i++) {
+        console.log(favouriteFruits[i]);
+    }
+    // or if we can forEach loop: favouriteFruits.forEach(fruit => console.log(fruit));
+
+    // 2. Write a function that takes an array of numbers as a parameter and returns the average of those numbers
+    let averageOfNumbers = numbersArray => {
+        return numbersArray.reduce((sum, number) => sum + number, 0) / numbersArray.length;
+    }
+    console.log(averageOfNumbers([15, 28, -5, 2, 1]));
+
+    // 3. Given an array of numbers, use a loop to find and log the largest number in the array.
+    let getMax = numbersArray => {
+        return numbersArray.reduce((max, number) => (number > max) ? number : max, 0);
+    }
+    console.log(getMax([1, -5, 2, 10]));
+
+    // 4. Create an array of words. Use a `for` loop to construct a sentence by concatenating these words and log it to the console.
+    let someSentenceArray = ['lorem', 'ipsum', 'is', 'simply', 'dummy', 'text', 'of', 'the', 'printing'];
+    let concatenatedSomeSentence = '';
+
+    for (let i = 0; i < someSentenceArray.length; i++) {
+        concatenatedSomeSentence += `${someSentenceArray[i]} `;
+    }
+    console.log(concatenatedSomeSentence);
+
+    // 5. Write a function that takes an array of names and a name as a parameter. The function should check if the given name exists in the array and return true or false.
+    let checkNameInArray = (namesArray, inputName) => namesArray.includes(inputName);
+    console.log(checkNameInArray(['Vasya', 'Petya', 'Dmitry'], 'Leonid'));
+
+    // 6. Create an array of even numbers from 1 to 20 using a `for` loop and the `if` statement. Log the resulting array to the console.
+    let evenNumbersArray = [];
+    for (let i = 1; i <= 20; i++) {
+        if (i % 2 === 0) evenNumbersArray.push(i);
+    }
+    console.log(evenNumbersArray);
+
+// 4. Objects
+    // 1. Create an object representing a book with properties like title, author, and year. Print the book's details to the console.
+    let bookObject = {
+        title: 'Clean Code: A Handbook of Agile Software Craftsmanship',
+        author: 'Robert C. Martin',
+        year: 2009
+    };
+    console.log(bookObject);
+
+    // 2. Define an object to represent a person with properties like name, age, and gender. Create a function that takes a person's object as a parameter and prints a message with their information.
+    let myPersonObject = {
+        name: 'Leonid',
+        age: 20,
+        gender: 'man'
+    };
+
+    let printPersonInfo = personObject => {
+        console.log(`person name: ${personObject.name}`);
+        console.log(`person age: ${personObject.age}`);
+        console.log(`person gender: ${personObject.gender}`);
+    }
+
+    printPersonInfo(myPersonObject);
+
+// 5. Objects as Classes
+    // 1. Create an object that simulates a class representing a car with properties like make, model, and year. Add a method to start the car.
+    // 2. Extend the previous car class object with a method to drive the car. Print a message when you start and drive the car instance.
+    class Car {
+        started = false;
+
+        constructor(make, model, year) {
+            this.make = make;
+            this.model = model;
+            this.year = year;
+        }
+
+        getMake() {
+            return this.make;
+        }
+
+        getModel() {
+            return this.model;
+        }
+
+        getYear() {
+            return this.year;
+        }
+
+        start() {
+            this.started = true;
+            console.log('Car is started');
+        }
+
+        turn(direction) {
+            console.log(`The car turned in the direction of ${direction}`);
+        }
+    }
+
+    let createdCarObject = new Car('BMW', 'M5 Competition', 2019);
+    createdCarObject.start();
+
+    const directionMap = {
+        "ArrowLeft": "left",
+        "a": "left",
+        "ArrowUp": "up",
+        "w": "up",
+        "ArrowRight": "right",
+        "d": "right",
+        "ArrowDown": "down",
+        "s": "down"
+    };
+
+    window.addEventListener('keydown', (e) => {
+        let direction = directionMap[e.key];
+
+        if (direction) {
+            createdCarObject.turn(direction);
+        }
+    });
+
+ // 6. Window Object
+    // 1. Use the `window.alert` method to display an alert dialog with a message of your choice when a button is clicked on a webpage.
+    alert('window alert');
+
+    // 2. Create a function that uses `window.prompt` to ask the user for their name, then use `window.alert` to greet them with their name.
+    alert(prompt('What is your name?'));
+
+// 7. DOM Manipulation
+    // 1. Create an HTML page with a button and a div element. Write a JavaScript function that changes the text content of the div when the button is clicked
+    let likeBtn = document.getElementById('like-btn');
+    likeBtn.addEventListener('click', (event) => {
+        let targetEl = event.target;
+
+        const isLiked = targetEl.innerHTML === 'Like';
+        targetEl.innerHTML = isLiked ? 'Not Like' : 'Like';
+        targetEl.classList.toggle('btn--green');
+        targetEl.classList.toggle('btn--black');
+    });
+
+    // 2. In an HTML page, create a list of items (e.g., a to-do list) using an unordered list (`<ul>`) and list items (`<li>`). Write JavaScript to add a new item to the list when a button is clicked.
+    document.getElementById('add-in-todo').addEventListener('click', (event) => {
+        event.preventDefault();
+
+        let todoTitleNode = document.getElementById('todo-title');
+        let todoTextNode = document.getElementById('todo-text');
+
+        let todoTitle = todoTitleNode.value;
+        let todoText = todoTextNode.value;
+
+        let newTodoNode = document.createElement('li');
+        newTodoNode.classList.add('todo');
+
+        newTodoNode.innerHTML = (`
+            <div class="todo__title">${todoTitle}</div>
+            <div class="todo__text">${todoText}</div>
+        `);
+
+        let todos = document.getElementById('todos');
+        todos.appendChild(newTodoNode);
+
+        todoTitleNode.value = '';
+        todoTextNode.value = '';
+    });
+
+    document.getElementById('change-target-img').addEventListener('click', (e) => {
+        e.preventDefault();
+
+        document.getElementById('target-img').setAttribute('src', 'https://w.forfun.com/fetch/7d/7d79fe65083e413f2dc407c292e1a6cf.jpeg');
+    })
+
+
+    function login() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let messageElement = document.getElementById("message");
+
+        if (username === "user" && password === "admin123") {
+            messageElement.innerHTML = "<div style='color: green;'>Success!</div>";
+        } else {
+            messageElement.innerHTML = "<div style='color: red;'>Error: Not correct username or password.</div>";
+        }
+    }
+</script>
+</body>
+</html>
