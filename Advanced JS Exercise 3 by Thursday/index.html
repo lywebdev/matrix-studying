@@ -1,0 +1,49 @@
+<script>
+    // Exercise 1
+    let checkAge = age => {
+        return age > 18 ? true : confirm('Do you have your parents permission to access this page?')
+    }
+
+    // Exercise 2
+    let pow = (number, degree) => {
+        let result = 1;
+        for (let i = 0; i < degree; i++) {
+            result *= number;
+        }
+
+        return result;
+    }
+
+    // Exercise 3
+    let ask = (question, yes, no) => confirm(question) ? yes() : no();
+
+    ask(
+        "Do you agree?",
+        () => { alert('You agreed.') },
+        () => { alert('You canceked the execution.') }
+    )
+
+    // Exercise 4
+    let calculator = {
+        // ... your code ...
+        firstValue: undefined,
+        secondValue: undefined,
+        read: () => {
+            this.firstValue = Number(prompt('Enter first value'));
+            this.secondValue = Number(prompt('Enter second value'));
+        },
+        sum: () => {
+            return this.firstValue + this.secondValue;
+        },
+        mul: () => {
+            return this.firstValue * this.secondValue;
+        }
+    };
+
+    calculator.read();
+    alert( calculator.sum() );
+    alert( calculator.mul() );
+
+    // Exercise 5
+    let min = (a, b) => a < b ? a : b;
+</script>
