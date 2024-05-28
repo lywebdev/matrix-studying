@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment 2 - from Turing to Gates</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 100px;
+        }
+
+        .img {
+            max-width: 100%;
+            max-height: 700px;
+            width: 1000px;
+            object-fit: cover;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <img src="images/1a.jpg" data-alt="images/1b.jpg" alt="" id="img1" class="img">
+    <img src="images/2a.jpg" data-alt="images/2b.jpg" alt="" id="img2" class="img">
+    <img src="images/3a.jpg" data-alt="images/3b.jpg" alt="" id="img3" class="img">
+</div>
+
+<script>
+    $(document).ready(() => {
+        $('.img').bind('click', (e) => {
+            let currentEl = $(e.currentTarget);
+            let dataAlt = currentEl.attr('src');
+
+            currentEl.attr('src', currentEl.data('alt'));
+            currentEl.data('alt', dataAlt);
+        });
+    });
+</script>
+</body>
+</html>

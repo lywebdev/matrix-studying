@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment 3: Countdown Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script defer src="main.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <form action="" class="input-data">
+            <label for="time">Enter time in seconds</label>
+            <input type="text" name="time" id="time" placeholder="Enter time in seconds">
+        </form>
+
+        <div class="timer">
+            <div id="hours">00</div>:
+            <div id="minutes">00</div>:
+            <div id="seconds">00</div>
+        </div>
+
+        <div class="control-panel">
+            <button class="btn btn--start" id="start-btn">Start</button>
+            <button class="btn btn--start" id="pause-btn">Pause</button>
+            <button class="btn btn--start" id="reset-btn">Reset</button>
+        </div>
+
+
+        <div id="result-container"></div>
+    </div>
+</div>
+</body>
+</html>
