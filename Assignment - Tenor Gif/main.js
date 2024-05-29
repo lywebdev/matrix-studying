@@ -27,8 +27,8 @@ const renderResults = dataObjectsArray => {
             sourceUrl = 'https://media1.tenor.com/m/51xvC35-fDEAAAAC/manhunt.gif';
         }
 
-        return `<div class="card" data-id="${dataObject.id}">
-        <img src="${sourceUrl}" alt="${dataObject.contentDescription}" class="max-w-full max-h-full object-cover rounded-lg">
+        return `<div class="card w-full mb-8" data-id="${dataObject.id}">
+        <img src="${sourceUrl}" alt="${dataObject.contentDescription}" class="max-w-full max-h-full object-cover rounded-lg w-full">
     </div>`;
     }
 
