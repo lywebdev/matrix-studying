@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tenor Gif</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div id="app">
+    <header class="header px-10 py-5">
+        <h3>Tenor GIF Assignment</h3>
+    </header>
+    <section id="main" class="px-10 pb-5 bg-indigo-300 min-h-screen flex flex-col items-center">
+        <form action="" class="pt-5">
+            <label for="search_query" class="text-white font-bold">Query</label>
+            <input type="text" name="search_query" id="search_query" class="h-10 box-border rounded px-3 py-1 outline-none ml-2">
+            <button id="get-result" class="h-10 px-3 box-border rounded bg-green-400 text-black font-bold transition-opacity ease-in-out duration-300 hover:opacity-85">Get result</button>
+        </form>
+        <h2 class="text-6xl text-red-600 mt-5 hidden" id="error-box">Error</h2>
+        <h2 class="text-6xl text-white mt-5 hidden" id="loading-box">Loading</h2>
+        <div class="cards grid grid-cols-4 gap-4" style="margin-top: 20px;" id="cards"></div>
+    </section>
+</div>
+<script defer src="main.js"></script>
+</body>
+</html>
