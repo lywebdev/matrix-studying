@@ -17,12 +17,12 @@ const inputArray = [
 ];
 
 
-const getMaxNumbersOfArrays = arr => {
+const getMaxNumberOfArrays = arr => {
     let maxNumber = -Infinity;
 
     for (let i = 0; i < arr.length; i++) {
         if (Array.isArray(arr[i])) {
-            let maxInSubArray = getMaxNumbersOfArrays(arr[i]);
+            let maxInSubArray = getMaxNumberOfArrays(arr[i]);
             if (maxInSubArray > maxNumber) {
                 maxNumber = maxInSubArray;
             }
@@ -38,4 +38,4 @@ const getMaxNumbersOfArrays = arr => {
 }
 
 
-console.log(getMaxNumbersOfArrays(inputArray));
+console.log(getMaxNumberOfArrays(inputArray));
