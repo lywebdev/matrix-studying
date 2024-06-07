@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+#app {
+  font-family: 'Roboto Light', sans-serif;
+}
+
+#app * {
+  box-sizing: border-box;
+  font-family: 'Roboto Light', sans-serif;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+.posts {
+
+}
+
+.post-page {
+
+}
+
+.post-page h1 {
+  text-align: center;
+}
+
+
+
+.post-page p {
+  line-height: 150%;
+}
+
+
+.link {
+  text-decoration: none;
+  color: blue;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.input {
+  height: 30px;
+  outline: none;
+  border: 1px solid #ccc;;
+  border-radius: 5px;
+  padding: 3px 10px;
+  font-family: 'Roboto Light', sans-serif;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  height: 30px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.post {
+  border: 3px solid #ccc;
+  border-radius: 7px;
+  padding: 15px;
+}
+
+.post .link {
+  margin-top: 10px;
+}
+
+.post:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.btn--submit {
+  background: #479148;
+  color: white;
+}
+
+.btn--action {
+  background: #1A3591;
+  color: white;
+}
