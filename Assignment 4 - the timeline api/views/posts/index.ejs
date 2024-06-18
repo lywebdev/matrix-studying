@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Friday Challenge</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<div id="app">
+    <h1>Home page</h1>
+    <ul class="posts">
+        <% posts.forEach(function(post) { %>
+            <li class="post">
+                <strong><%= post.title %></strong>
+                <p><%= post.content %></p>
+                <span><%= post.createdAt %></span>
+                <br>
+                <a href="/posts/<%= post.id %>" class="link">Read</a>
+                <form action="/posts/delete/<%= post.id %>" method="post" style="display: inline;">
+                    <input type="hidden" name="id" value="<%= post.id %>">
+                    <input type="submit" class="link" style="color: red; outline: none; background: none; border: none;" value="Delete">
+<!--                    <a href="/posts/delete/<%= post.id %>" class="link" style="margin-left: 5px; color: red;">Delete</a>-->
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+
+    <a href="/posts/create" class="btn btn--action">Create post</a>
+</div>
+</body>
+</html>
