@@ -53,9 +53,6 @@ exports.getTweetById = async (req, res) => {
             } catch (invalidSignatureError) {
             }
         }
-        if (user === null) {
-            res.redirect('/auth/login');
-        }
 
 
         res.render('tweet', {

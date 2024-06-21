@@ -24,10 +24,12 @@ router.get('/', tweetController.getTweets);
 
 router.get('/tweets/create', jwtAuth, tweetController.createForm);
 router.post('/tweets/create', jwtAuth, tweetController.createTweet);
-router.get('/tweets/:id', jwtAuth, tweetController.getTweetById);
 
 router.get('/tweets/edit/:id', jwtAuth, tweetController.updateTweetForm);
 router.post('/tweets/update/:id', jwtAuth, tweetController.updateTweet);
+
+router.get('/tweets/:id', tweetController.getTweetById);
+
 
 router.post('/tweets/delete/:id', jwtAuth, tweetController.deleteTweet);
 
