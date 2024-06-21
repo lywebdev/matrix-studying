@@ -152,3 +152,24 @@ button {
     text-decoration: underline;
   }
 }
+
+.tweets {
+  margin-bottom: 25px;
+  list-style-type: none;
+  row-gap: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.tweet {
+  border: 2px solid #19b1d3;
+  padding: 15px;
+
+  .link {
+    margin: 5px 0;
+  }
+
+  form {
+    margin-top: 15px;
+  }
+}

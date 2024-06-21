@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tweet <%= tweet.title %></title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
 <div id="app">
@@ -14,10 +15,10 @@
         <p><%= tweet.tweet %></p>
 
         <% if (user) { %>
-            <a href="/tweets/edit/<%= tweet.id %>" class="link">Edit this tweet</a>
+            <a href="/tweets/edit/<%= tweet.id %>" class="link" style="margin-top: 10px;">Edit this tweet</a>
         <% } %>
 
-        <hr>
+        <hr style="margin-top: 15px; margin-bottom: 15px;">
         <a href="/" class="link">Go to home</a>
     </div>
 </div>
