@@ -19,10 +19,10 @@ const ensureGuest = (req, res, next) => {
     }
 };
 
-router.get('/auth/login', ensureGuest, authController.loginForm);
-router.post('/auth/login', ensureGuest, authController.login);
-router.get('/auth/register', ensureGuest, authController.registerForm);
-router.post('/auth/register', ensureGuest, authController.register);
+router.get('/auth/login', authController.loginForm);
+router.post('/auth/login', authController.login);
+router.get('/auth/register', authController.registerForm);
+router.post('/auth/register', authController.register);
 
 
 module.exports = router;

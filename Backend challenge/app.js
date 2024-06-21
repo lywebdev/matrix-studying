@@ -8,7 +8,6 @@ const tweetRoutes = require('./config/tweetRoutes');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const path = require('path');
-const jwt = require('jsonwebtoken');
 const cookieParser = require("cookie-parser");
 
 const PORT = process.env.PORT;

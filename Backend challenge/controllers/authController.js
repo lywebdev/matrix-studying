@@ -26,7 +26,7 @@ exports.register = async (req, res) => {
         });
 
         await user.save();
-        res.redirect('auth/login');
+        res.redirect('/auth/login');
     } catch (error) {
         res.status(500).send('Registering error');
     }
