@@ -31,6 +31,9 @@
 
                             <strong><%= tweet.tweet %></strong>
 
+                            <br>
+                            <a href="/tweets/<%= tweet.id %>">See more</a>
+
                             <% if (user) { %>
                                 <br>
                                 <form action="tweets/delete/<%= tweet.id %>" method="post">

@@ -4,7 +4,7 @@ const tweetController = require('../controllers/tweetController');
 
 
 router.get('/', tweetController.getTweets);
-router.get('/:id', tweetController.getTweetById);
+router.get('/tweets/:id', tweetController.getTweetById);
 
 
 router.get('/tweets/create', tweetController.createForm);

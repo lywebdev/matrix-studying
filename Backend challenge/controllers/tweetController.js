@@ -38,17 +38,14 @@ exports.getTweets = async (req, res) => {
 
 exports.getTweetById = async (req, res) => {
     try {
-        const tweet = await Tweet.findById(req.params.id).populate('user', 'username');
+        const tweet = await Tweet.findById(req.params.id).populate('user', 'email');
         if (!tweet) {
             return res.status(404).json({ message: 'Twit not found' });
         }
-        const formattedTweet = {
-            _id: tweet._id,
-            title: tweet.title,
-            user: tweet.user,
-            createdAt: moment(tweet.createdAt).format('MMMM Do YYYY, h:mm:ss a')
-        };
-        res.json(formattedTweet);
+
+        res.render('tweet-edit', {
+            tweet: tweet,
+        });
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
