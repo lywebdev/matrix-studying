@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tweeter</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div id="app">
+    <div class="tweeter">
+        <% if (user && user.firstname) { %>
+            <h1>Welcome to Tweeter, <%= user.firstname %></h1>
+
+            <a href="/tweets/create">Create tweet</a>
+
+        <% } else { %>
+            <h1>Welcome to Tweeter</h1>
+        <% } %>
+
+            <% if (tweets.length === 0) { %>
+                <p>Twits not found.</p>
+            <% } else { %>
+                <ul class="tweets">
+                    <% tweets.forEach(tweet => { %>
+                        <li class="tweet">
+                            <h3><%= tweet.title %></h3>
+                            <p><strong>Tweet date:</strong> <%= tweetFormattedDate(tweet.createdAt) %></p>
+
+                            <strong><%= tweet.tweet %></strong>
+
+                            <% if (user) { %>
+                                <br>
+                                <form action="tweets/delete/<%= tweet.id %>" method="post">
+                                    <button type="submit" style="color: white; background: #bf2121;">Delete tweet</button>
+                                </form>
+                            <% } %>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } %>
+
+    </div>
+</div>
+</body>
+</html>

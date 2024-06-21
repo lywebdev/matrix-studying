@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Authorization</title>
+    <style>
+        .form-container {
+            display: none;
+        }
+        .form-container.active {
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div id="app">
+    <div class="auth">
+        <h1>Register / Login</h1>
+        <button onclick="showForm('register-form')">Register</button>
+        <button onclick="showForm('login-form')">Login</button>
+
+        <div id="register-form" class="form-container">
+            <h2>Register</h2>
+            <form action="/auth/register" method="POST">
+                <div>
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+                <div>
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <div id="login-form" class="form-container">
+            <h2>Login</h2>
+            <form action="/auth/login" method="POST">
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <a href="/" class="link" style="margin-top: 15px; text-align: center;">Go home</a>
+        </div>
+    </div>
+</div>
+<script>
+    function showForm(formId) {
+        document.getElementById('register-form').classList.remove('active');
+        document.getElementById('login-form').classList.remove('active');
+        document.getElementById(formId).classList.add('active');
+    }
+    window.onload = function() {
+        showForm('login-form');
+    }
+</script>
+</body>
+</html>
