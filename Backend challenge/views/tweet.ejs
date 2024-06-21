@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tweet <%= tweet.title %></title>
+</head>
+<body>
+<div id="app">
+    <div class="main-tweet">
+        <h1><%= tweet.title %></h1>
+        <p><%= tweet.tweet %></p>
+
+        <% if (user) { %>
+            <a href="/tweets/edit/<%= tweet.id %>" class="link">Edit this tweet</a>
+        <% } %>
+
+        <hr>
+        <a href="/" class="link">Go to home</a>
+    </div>
+</div>
+</body>
+</html>

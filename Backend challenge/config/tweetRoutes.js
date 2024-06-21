@@ -4,14 +4,13 @@ const tweetController = require('../controllers/tweetController');
 
 
 router.get('/', tweetController.getTweets);
-router.get('/tweets/:id', tweetController.getTweetById);
-
 
 router.get('/tweets/create', tweetController.createForm);
 router.post('/tweets/create', tweetController.createTweet);
+router.get('/tweets/:id', tweetController.getTweetById);
 
-
-router.post('/update/:id', tweetController.updateTweet);
+router.get('/tweets/edit/:id', tweetController.updateTweetForm);
+router.post('/tweets/update/:id', tweetController.updateTweet);
 
 router.post('/tweets/delete/:id', tweetController.deleteTweet);
 

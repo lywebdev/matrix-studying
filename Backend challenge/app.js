@@ -64,6 +64,11 @@ const jwtAuth = (req, res, next) => {
 app.use('/', authRotes);
 app.use('/', tweetRoutes);
 
+app.get('/logout', (req, res) => {
+    res.clearCookie('token');
+    res.redirect('/');
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server has been started on http://localhost:${PORT}`);

@@ -43,8 +43,24 @@ exports.getTweetById = async (req, res) => {
             return res.status(404).json({ message: 'Twit not found' });
         }
 
-        res.render('tweet-edit', {
+        const token = req.cookies?.token || req.headers.authorization?.split(' ')[1];
+
+        let user = null;
+        if (token) {
+            try {
+                user = verify(token, JWT_SECRET);
+                user = await User.findOne({email: user.email});
+            } catch (invalidSignatureError) {
+            }
+        }
+        if (user === null) {
+            res.redirect('/auth/login');
+        }
+
+
+        res.render('tweet', {
             tweet: tweet,
+            user: user,
         });
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -65,18 +81,18 @@ exports.createTweet = async (req, res) => {
 
             user = await User.findOne({email: user.email});
         } catch (invalidSignatureError) {
-            res.redirect('auth/login');
+            res.redirect('/auth/login');
         }
     }
     if (user === null) {
-        res.redirect('auth/login');
+        res.redirect('/auth/login');
     }
 
 
     const tweet = new Tweet({
         title: req.body.title,
         tweet: req.body.tweet,
-        user: user.id
+        user: user
     });
 
     try {
@@ -87,17 +103,29 @@ exports.createTweet = async (req, res) => {
     }
 };
 
+exports.updateTweetForm = async (req, res) => {
+    const tweet = await Tweet.findById(req.params.id).populate('user', 'email');
+    if (!tweet) {
+        return res.status(404).json({ message: 'Twit not found' });
+    }
+
+    res.render('tweet-edit', {
+        tweet: tweet,
+    });
+};
+
 exports.updateTweet = async (req, res) => {
     try {
         const tweet = await Tweet.findByIdAndUpdate(req.params.id, {
-            title: req.body.title
-        }, { new: true });
+            title: req.body.title,
+            tweet: req.body.tweet,
+        });
 
         if (!tweet) {
-            return res.status(404).json({ message: 'Твит не найден' });
+            return res.status(404).json({ message: 'Twit not found' });
         }
 
-        res.json(tweet);
+        res.redirect(`/tweets/${tweet.id}`);
     } catch (err) {
         res.status(400).json({ message: err.message });
     }

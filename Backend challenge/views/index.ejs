@@ -14,7 +14,9 @@
         <% if (user && user.firstname) { %>
             <h1>Welcome to Tweeter, <%= user.firstname %></h1>
 
-            <a href="/tweets/create">Create tweet</a>
+            <a href="/tweets/create" class="link">Create tweet</a>
+            <a href="/logout" style="margin-left: 15px; color: gray;" class="link">Logout</a>
+            <hr style="margin-top: 15px; margin-bottom: 15px;">
 
         <% } else { %>
             <h1>Welcome to Tweeter</h1>
@@ -32,7 +34,7 @@
                             <strong><%= tweet.tweet %></strong>
 
                             <br>
-                            <a href="/tweets/<%= tweet.id %>">See more</a>
+                            <a href="/tweets/<%= tweet.id %>" class="link">See more</a>
 
                             <% if (user) { %>
                                 <br>
