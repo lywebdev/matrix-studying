@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
+
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  background: rgba(0,0,0,0.1);
+  color: black !important;
+  font-family: Arial, sans-serif;
+  height: 40px;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

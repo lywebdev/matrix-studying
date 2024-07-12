@@ -1,0 +1,32 @@
+.product-form .btn {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+
+  background: green;
+  color: white !important;
+}
+
+.product-form input,
+.product-form textarea {
+  outline: none;
+  border: 1px solid black;
+
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.product-form textarea {
+  height: unset;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 5px;
+    display: inline-block;
+    font-weight: bold;
+  }
+}
